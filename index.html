@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Vorlon.JS is an open source tool for remotely debugging and testing JavaScript.">
+    <meta name="keywords" content="JavaScript, debugging, testing, remote debugging, console, dom inspector, modernizr, plugins, Vorlon.JS, Vorlon, open source, mobile testing">
+    <meta name="author" content="Microsoft">
+    <title>Vorlon.JS
+    </title>
+    <link href="http://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300|Roboto:400,300" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="home">
+    <div class="content-wrapper">
+      <nav class="nav-main">
+        <div class="container cf">
+          <h1 class="home"><a href="/" class="logo">Vorlon.JS</a></h1>
+          <label for="reveal-nav" class="nav-item filled reveal-nav-btn">Menu</label>
+          <input type="checkbox" id="reveal-nav" role="button" class="reveal-nav-input">
+          <div class="nav-main-list"><a href="/#demo" class="nav-item">See Demo</a><a href="/#getting-started" class="nav-item">Get Started</a><a href="/plugins" class="nav-item">Plugins</a><a href="/documentation" class="nav-item">Documentation</a><a href="/community" class="nav-item">Community</a><a href="https://github.com/MicrosoftDX/Vorlonjs/" class="nav-item filled">GitHub</a></div>
+        </div>
+      </nav>
+      <header class="site-header">
+        <div class="container">
+          <div class="logo">Vorlon.JS
+            <div class="spaceship">
+              <div class="exhaust"></div>
+            </div>
+          </div>
+          <div class="tube tube-left">
+            <div class="data"></div>
+          </div>
+          <div class="tube tube-top">
+            <div class="data"></div>
+          </div>
+          <div class="tube tube-right">
+            <div class="data"></div>
+          </div>
+          <div class="planets"></div>
+        </div>
+        <div class="satellite"></div>
+      </header>
+      <section class="centered">
+        <div class="container narrow">
+          <h1>Introducing Vorlon.JS</h1>
+          <p class="centered"><a href="https://npmjs.org/package/vorlon" class="npm-shield"><img src="https://badge.fury.io/js/vorlon.svg"></a></p>
+          <p>An open source, extensible, platform-agnostic tool for remotely debugging and testing your JavaScript. Powered by node.js and socket.io.</p>
+        </div>
+      </section>
+      <section class="features">
+        <div class="container cf">
+          <div class="feature">
+            <h2>Easy setup</h2>
+            <p>Install Vorlon.JS and add a single line of JavaScript to your web app. Run your server and start the Vorlon.JS dashboard.</p><a href="/#getting-started" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="feature">
+            <h2>Multi-device</h2>
+            <p>Remotely connect up to 50 devices simultaneously. Run your code on each or all of them with a single click.</p><a href="/#demo" class="btn btn-secondary">View Demo</a>
+          </div>
+          <div class="feature">
+            <h2>Extensible</h2>
+            <p>Debug JavaScript on nearly any platform with a web environment. Plugins allow you to add new features and resources.</p><a href="/plugins" class="btn btn-secondary">View Plugins</a>
+          </div>
+        </div>
+      </section>
+      <section id="demo">
+        <div class="container cf">
+          <h2>See a Vorlon.JS Demo</h2>
+          <div class="video">
+            <div class="video-embed">
+              <video controls>
+                <source src="/videos/vorlon-demo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr>
+      <section id="getting-started">
+        <div class="container narrow">
+          <h2>Getting Started</h2>
+          <p>Install and run the Vorlon.JS server from npm:</p>
+          <pre><code>$ npm i -g vorlon
+$ vorlon</code></pre>
+          <p>Once Vorlon.JS is done installing, you can now run the server:</p>
+          <pre><code>$ vorlon
+The Vorlon server is running</code></pre>
+          <p>With the server is running, open <code>http://localhost:1337</code> in your browser to see the Vorlon.JS dashboard.</p>
+          <p>The last step is to enable Vorlon.JS by adding this script tag to your app:
+            <pre><code>&lt;script src="http://localhost:1337/vorlon.js"&gt;&lt;/script&gt;</code></pre>
+          </p>
+          <p>Now when you open your app you should see your client appear on the dashboard.</p>
+          <p>You can also open the <a href="http://cdn.rawgit.com/MicrosoftDX/Vorlonjs/master/Plugins/samples/index.html">sample page</a>, which already has this script tag in it, to test your dashboard.</p>
+          <p class="centered"><a href="documentation/" class="btn btn-primary">Read the Docs</a></p>
+        </div>
+      </section>
+      <footer class="site-footer">
+        <div class="container">
+          <nav class="nav-footer cf"><a href="/#demo" class="nav-item">See Demo</a><a href="/#getting-started" class="nav-item">Get Started</a><a href="/plugins" class="nav-item">Plugins</a><a href="/documentation" class="nav-item">Documentation</a><a href="/community" class="nav-item">Community</a><a href="https://github.com/MicrosoftDX/Vorlonjs/" class="nav-item">GitHub</a><a href="https://github.com/MicrosoftDX/Vorlonjs/blob/master/LICENSE" class="nav-item">MIT License</a></nav>
+          <h4 class="home"><a href="/" class="footer-logo">Vorlon.JS</a></h4>
+        </div>
+      </footer>
+    </div>
+    <script src="/js/scripts.js"></script>
+  </body>
+</html>

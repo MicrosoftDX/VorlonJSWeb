@@ -1,0 +1,36 @@
+block vars
+  - var bodyClass = 'plugins'
+  - var description = 'Vorlon.JS plugins make JavaScript debugging simple and consistent.'
+
+extends ../layout
+
+block title
+  | Plugins | 
+
+block content
+
+  section.centered
+    h1 Plugins
+    p Vorlon.JS plugins make debugging simple, consistent and are where you will spend the majority of your time while debugging your application.
+    p.no-gap
+      img.illustration(src='/images/illustration-computer-devices.png')
+
+  section.features
+    p.centered <strong>The Vorlon.JS core includes four plugins by default.</strong>
+    .container.cf
+      include includes/console
+      include includes/modernizr
+      include includes/domexplorer
+      include includes/objectexplorer
+
+  // Section to show before any additional plugins are available to use
+  section.centered
+    .container
+      h2 Using and Creating Plugins
+      p Vorlon.JS can be extended to include the plugins you need. See the documentation for instructions on installing plugins or creating your own plugin.
+      p.centered
+        a.btn.btn-primary(href='/documentation/#installing-plugins') How to install plugins
+        a.btn.btn-primary(href='/documentation/#creating-plugins') How to create a plugin
+
+  // Section of additional plugins would show here
+  // See includes/plugins-list

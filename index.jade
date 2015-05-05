@@ -1,0 +1,78 @@
+block vars
+  - var bodyClass = 'home'
+  - var description = "Vorlon.JS is an open source tool for remotely debugging and testing JavaScript."
+
+extends layout
+
+block content
+
+  header.site-header
+    .container
+      .logo Vorlon.JS
+        .spaceship
+          .exhaust
+      .tube.tube-left
+        .data
+      .tube.tube-top
+        .data
+      .tube.tube-right
+        .data
+      .planets
+    .satellite
+
+  section.centered
+    .container.narrow
+      h1 Introducing Vorlon.JS
+      p.centered
+        a.npm-shield(href='https://npmjs.org/package/vorlon')
+          img(src='https://badge.fury.io/js/vorlon.svg')
+      p An open source, extensible, platform-agnostic tool for remotely debugging and testing your JavaScript. Powered by node.js and socket.io.
+
+  section.features
+    .container.cf
+      .feature
+        h2 Easy setup
+        p Install Vorlon.JS and add a single line of JavaScript to your web app. Run your server and start the Vorlon.JS dashboard.
+        a.btn.btn-secondary(href='/#getting-started') Get Started
+      .feature
+        h2 Multi-device
+        p Remotely connect up to 50 devices simultaneously. Run your code on each or all of them with a single click.
+        a.btn.btn-secondary(href='/#demo') View Demo
+      .feature
+        h2 Extensible
+        p Debug JavaScript on nearly any platform with a web environment. Plugins allow you to add new features and resources.
+        a.btn.btn-secondary(href='/plugins') View Plugins
+
+  section#demo
+    .container.cf
+      h2 See a Vorlon.JS Demo
+      .video
+        .video-embed
+          //- iframe(src='https://www.youtube.com/embed/r3QVbyesRmc?rel=0' frameborder='0' allowfullscreen)
+          video(controls)
+            source(src='/videos/vorlon-demo.mp4', type='video/mp4')
+
+  hr
+
+  section#getting-started
+    .container.narrow
+      h2 Getting Started
+      p Install and run the Vorlon.JS server from npm:
+      pre
+        code
+          | $ npm i -g vorlon
+          | $ vorlon
+      p Once Vorlon.JS is done installing, you can now run the server:
+      pre
+        code
+          | $ vorlon
+          | The Vorlon server is running
+      p With the server is running, open <code>http://localhost:1337</code> in your browser to see the Vorlon.JS dashboard.
+      p The last step is to enable Vorlon.JS by adding this script tag to your app:
+        pre
+          code
+            | &lt;script src="http://localhost:1337/vorlon.js"&gt;&lt;/script&gt;
+      p Now when you open your app you should see your client appear on the dashboard.
+      p You can also open the <a href="http://cdn.rawgit.com/MicrosoftDX/Vorlonjs/master/Plugins/samples/index.html">sample page</a>, which already has this script tag in it, to test your dashboard.
+      p.centered
+        a.btn.btn-primary(href='documentation/') Read the Docs

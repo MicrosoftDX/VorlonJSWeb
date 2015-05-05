@@ -1,0 +1,35 @@
+block vars
+  - var bodyClass = 'docs-page'
+  - var description = 'Documentation for Vorlon.JS, an open source tool for remotely debugging and testing JavaScript.'
+
+extends ../layout
+
+block title
+  | Documentation | 
+
+block content
+
+  .container.docs-content
+    .left-col
+      .head-bar
+        h1.home
+          a.logo(href='/') Vorlon.JS
+        a.back-to-top(href='#') back to top
+      nav.documentation-nav
+        h3 Documentation
+        ul
+          for section in documentation
+            li(class='depth-1')
+              a(href='#' + section.headers[0].slug)= section.headers[0].title
+
+              if section.headers.length > 1
+                ul
+                  for header in section.headers.slice(1)
+                    li(class='depth-' + header.depth)
+                      a(href='#' + header.slug)= header.title
+
+    .right-col
+
+      for section in documentation
+        section
+          != section.html

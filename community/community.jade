@@ -1,0 +1,58 @@
+block vars
+  - var bodyClass = 'community'
+  - var description = 'Contribute to Vorlon.JS, an open source tool for remotely debugging and testing JavaScript.'
+
+extends ../layout
+
+block title
+  | Community | 
+
+block content
+
+  section.centered
+    h1 Contribute to Vorlon.JS
+    p Vorlon.JS is an open source project with the goal of making it easier to debug and test complicated JavaScript that is common in today’s modern web. Built by a small team of engineers and technical evangelists at Microsoft, the project welcomes developers who like to make tools that help other developers spend less time debugging and more time building the next great web app.
+    a.btn.btn-primary(href='https://github.com/MicrosoftDX/Vorlonjs') See our GitHub repo
+
+  section.features.community-features
+    .container.cf
+      h2 Here are a few ways to contribute
+      .feature
+        a.icon.icon-github(href='https://github.com/MicrosoftDX/Vorlonjs/issues?label%3Anew-contributor')
+        p Take on an issue from our issues list or submit an issue you’re having.
+        a.btn.btn-secondary(href='https://github.com/MicrosoftDX/Vorlonjs/issues?label%3Anew-contributor') Fix an Issue
+      .feature
+        a.icon.icon-create(href='/documentation/#creating-plugins')
+        p Extend Vorlon.JS by creating a new plugin to use and share with the community.
+        a.btn.btn-secondary(href='/documentation/#creating-plugins') Create a Plugin
+      .feature
+        a.icon.icon-lightbulb(href='https://github.com/MicrosoftDX/Vorlonjs/issues')
+        p If you have an idea for a useful plugin, let us know by creating an issue.
+        a.btn.btn-secondary(href='https://github.com/MicrosoftDX/Vorlonjs/issues') Suggest a Plugin
+
+  section.contributors
+    .container.cf
+      h2 Core Contributors
+
+      .avatars.core-team
+        each user, index in coreContributors
+          .avatar
+            a(href=user.url, target='_blank')
+              img(src=user.avatarUrl)
+            a.icon.icon-secondary.icon-github(href=user.url)= user.username
+            a.icon.icon-secondary.icon-twitter(href=user.twitterURL)= user.twitter
+
+        .easter-egg-question What's the deal with vorlons?
+        .easter-egg-answer: a(href="https://youtu.be/r3QVbyesRmc") https://youtu.be/r3QVbyesRmc
+
+  // Community Contributors, removed for now
+  //- hr
+  //- section.contributors
+  //-   .container.cf
+  //-     h2 Community Contributors
+
+  //-     .avatars
+  //-       for user in communityContributors
+  //-         .avatar
+  //-           a(href=user.url, target='_blank')
+  //-             img(src=user.avatarUrl)

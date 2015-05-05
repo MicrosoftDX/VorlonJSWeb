@@ -1,0 +1,54 @@
+// Community page styling
+
+.community-features.features
+
+  h2
+    margin-bottom: 30px
+
+.avatars
+  max-width: 700px
+  margin: 40px auto 0
+  text-align: center
+
+  .avatar
+    width: 15%
+    margin-bottom: 30px
+    padding: 0 10px
+    display: inline-block
+
+    img
+      width: 100%
+      border-radius: 3px
+
+  &.core-team
+    max-width: 600px
+
+    .avatar
+      width: 24%
+
+      .icon
+        margin-top: 5px
+
+@media screen and (max-width: $small-width)
+
+  .avatars
+    .avatar
+      width: 20%
+
+    &.core-team
+      .avatar
+        width: 40%
+
+.avatars.core-team
+  position: relative
+
+.easter-egg-question,
+.easter-egg-answer
+  visibility: hidden
+  font-family: Courier New, monospace
+  background: #1d0c3d
+  font-size: 12px
+  padding: 3px
+  color: white
+  display: inline-block
+  position: absolute

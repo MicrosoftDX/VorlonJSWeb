@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Documentation for Vorlon.JS, an open source tool for remotely debugging and testing JavaScript.">
+    <meta name="keywords" content="JavaScript, debugging, testing, remote debugging, console, dom inspector, modernizr, plugins, Vorlon.JS, Vorlon, open source, mobile testing">
+    <meta name="author" content="Microsoft">
+    <title>Documentation | Vorlon.JS</title>
+    <link href="http://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300|Roboto:400,300" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="docs-page">
+    <div class="content-wrapper">
+      <nav class="nav-main">
+        <div class="container cf">
+          <h1 class="home"><a href="/" class="logo">Vorlon.JS</a></h1>
+          <label for="reveal-nav" class="nav-item filled reveal-nav-btn">Menu</label>
+          <input type="checkbox" id="reveal-nav" role="button" class="reveal-nav-input">
+          <div class="nav-main-list"><a href="/#demo" class="nav-item">See Demo</a><a href="/#getting-started" class="nav-item">Get Started</a><a href="/plugins" class="nav-item">Plugins</a><a href="/documentation" class="nav-item">Documentation</a><a href="/community" class="nav-item">Community</a><a href="https://github.com/MicrosoftDX/Vorlonjs/" class="nav-item filled">GitHub</a></div>
+        </div>
+      </nav>
+      <div class="container docs-content">
+        <div class="left-col">
+          <div class="head-bar">
+            <h1 class="home"><a href="/" class="logo">Vorlon.JS</a></h1><a href="#" class="back-to-top">back to top</a>
+          </div>
+          <nav class="documentation-nav">
+            <h3>Documentation</h3>
+            <ul>
+              <li class="depth-1"><a href="#introduction">Introduction</a>
+              </li>
+              <li class="depth-1"><a href="#installing-vorlonjs">Installing Vorlon.JS</a>
+                <ul>
+                  <li class="depth-2"><a href="#vorlonjs-server">Vorlon.JS Server</a></li>
+                  <li class="depth-2"><a href="#vorlonjs-client">Vorlon.JS Client</a></li>
+                </ul>
+              </li>
+              <li class="depth-1"><a href="#vorlonjs-dashboard">Vorlon.JS Dashboard</a>
+              </li>
+              <li class="depth-1"><a href="#core-plugins">Core Plugins</a>
+                <ul>
+                  <li class="depth-2"><a href="#console">Console</a></li>
+                  <li class="depth-3"><a href="#logging">Logging</a></li>
+                  <li class="depth-3"><a href="#interactivity">Interactivity</a></li>
+                  <li class="depth-2"><a href="#dom-explorer">DOM Explorer</a></li>
+                  <li class="depth-2"><a href="#modernizr">Modernizr</a></li>
+                  <li class="depth-2"><a href="#object-explorer">Object Explorer</a></li>
+                </ul>
+              </li>
+              <li class="depth-1"><a href="#creating-plugins">Creating Plugins</a>
+                <ul>
+                  <li class="depth-2"><a href="#writing-plugins">Writing Plugins</a></li>
+                  <li class="depth-3"><a href="#running-vorlonjs-from-source">Running Vorlon.JS from source</a></li>
+                  <li class="depth-3"><a href="#sample-plugin">Sample Plugin</a></li>
+                  <li class="depth-2"><a href="#installing-plugins">Installing Plugins</a></li>
+                </ul>
+              </li>
+              <li class="depth-1"><a href="#contributing">Contributing</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="right-col">
+          <section><a name="introduction"></a><h1>Introduction</h1>
+<p>Vorlon.JS is a remote debugging and testing tool for JavaScript. It helps you remotely load inspect, test and debug JavaScript code running on any device with a web browser: whether it's a games console, mobile device or fridge.</p>
+<p>Vorlon.JS itself is a small web server you can run from your local machine, or install on a server for your team to access, that serves the Vorlon.JS dashboard and communicates with your remote devices. Installing the Vorlon.JS client in your web site or application is as easy as adding a single script tag.</p>
+<p>Vorlon.JS can be extended with plugins which may add features to both the client and the dashboard, for example: feature detection, logging, and exception tracking.</p>
+
+          </section>
+          <section><a name="installing-vorlonjs"></a><h1>Installing Vorlon.JS</h1>
+<a name="vorlonjs-server"></a><h2 id="vorlon-js-server">Vorlon.JS Server</h2>
+<p>To get started using Vorlon.JS you will need to install it from npm:</p>
+<pre><code>$ npm i -g vorlon
+</code></pre><p>Once Vorlon.JS is done installing, you can now run the server:</p>
+<pre><code>$ vorlon
+The Vorlon server is running
+</code></pre><p>With the server running, open <a href="http://localhost:1337">http://localhost:1337</a> in your browser to see the Vorlon.JS dashboard.</p>
+<a name="vorlonjs-client"></a><h2 id="vorlon-js-client">Vorlon.JS Client</h2>
+<p>Before you can start debugging your app you have to enable it to communicate to the Vorlon.JS Server by adding this script tag to your application’s html:</p>
+<pre><code>&lt;script src="http://localhost:1337/vorlon.js"&gt;&lt;/script&gt;
+</code></pre><p>You can also open the <a href="http://cdn.rawgit.com/MicrosoftDX/Vorlonjs/master/Plugins/samples/index.html">sample page</a> to test that your dashboard is working. You should see the client appear in your dashboard when you open that page.</p>
+
+          </section>
+          <section><a name="vorlonjs-dashboard"></a><h1>Vorlon.JS Dashboard</h1>
+<p>The Vorlon.JS dashboard is designed to help debug and test remote JavaScript applications and the UI is geared towards that goal. The dashboard has two major sections, the client summary view and the plugin view.</p>
+<p>The client summary view shows what the current session and client id are currently active and a list of available clients that you can work with. The <code>Identify a client</code> button quickly allows you to see which remote client browser tab or window you are currently working with.</p>
+<p>The plugin view is where all the action is! The console is the only plugin that has a fixed location at the bottom of the dashboard and all other plugins will present themselves across the top as tabs.</p>
+
+          </section>
+          <section><a name="core-plugins"></a><h1>Core Plugins</h1>
+<a name="console"></a><h2 id="console">Console</h2>
+<a name="logging"></a><h3 id="logging">Logging</h3>
+<p>The console tab will stream console messages from the client to the dashboard that you can use for debugging. Anything logged with <code>console.log()</code>, <code>console.warn()</code> or <code>console.error()</code> will appear in the dashboard.</p>
+<a name="interactivity"></a><h3 id="interactivity">Interactivity</h3>
+<p>You can also interact with the remote webpage by typing code into the input. Code entered will be evaluated in the context of the page.</p>
+<a name="dom-explorer"></a><h2 id="dom-explorer">DOM Explorer</h2>
+<p>The DOM explorer shows you the dom of the remote webpage. You can inspect the DOM, clicking on nodes will highlight them in the host webpage, and if you select one you can also view and modify its css properties.</p>
+<a name="modernizr"></a><h2 id="modernizr">Modernizr</h2>
+<p>The Modernizr tab will show you the supported browser features as reported by <a href="http://modernizr.com/">Modernizr</a>. You can use this to determine what features are actually available. This might be particularly useful on unusual mobile devices, or things like games consoles. You can use the search filter to select only specific features.</p>
+<a name="object-explorer"></a><h2 id="object-explorer">Object Explorer</h2>
+<p>The Object explorer tab will show you all JavaScript variable living on the remote page. You can click on object to see inner properties.</p>
+
+          </section>
+          <section><a name="creating-plugins"></a><h1>Creating Plugins</h1>
+<p>Vorlon.JS has been designed so that you can extend the dashboard and client application easily by writing or installing additional plugins. These can add extra panes to the dashboard which can communicate bi-directionally with the client application. The console, dom inspector and modernizr panes that come bundled with Vorlon.JS are all plugins themselves.</p>
+<a name="writing-plugins"></a><h2 id="writing-plugins">Writing Plugins</h2>
+<a name="running-vorlonjs-from-source"></a><h3 id="running-vorlon-js-from-source">Running Vorlon.JS from source</h3>
+<p>To write plugins, you currently need to clone and run Vorlon.JS from source.</p>
+<p>These commands will clone the repo, install dependencies, and run the VorlonJS server from source:</p>
+<pre><code>git clone https://github.com/MicrosoftDX/Vorlonjs.git
+cd Vorlonjs
+npm install
+npm start
+</code></pre><p>For further documentation on developing on Vorlon.JS, check the <a href="https://github.com/MicrosoftDX/Vorlonjs/blob/master/README.md">full readme</a> in the repo.</p>
+<a name="sample-plugin"></a><h3 id="sample-plugin">Sample Plugin</h3>
+<p>A Vorlon.JS plugin is a single Typescript class, that will be loaded in both the client and dashboard. It should extend from the <a href="https://github.com/MicrosoftDX/Vorlonjs/blob/master/microsoft/Plugins/Vorlon/vorlon.plugin.ts">Vorlon.Plugin class</a>. It may also load <code>html</code> and <code>css</code> into the dashboard to define a panel. You can then write code for both the dashboard and client that can communicate bidirectionally to create whatever features you need.</p>
+<p>To make it easy to get started, we’ve created a sample plugin. This adds an input field to the dashboard, that, when you type something and hit return, sends the message to your client browser, which will reverse the string and send it back, to be rendered in the dashboard. It’s just a simple example to show you how to create and communicate in a plugin. You should <a href="https://github.com/MicrosoftDX/Vorlonjs/blob/master/Plugins/Vorlon/plugins/sample/README.md">check the sample plugin’s readme</a> for information about how to enable it, and then <a href="https://github.com/MicrosoftDX/Vorlonjs/blob/master/Plugins/Vorlon/plugins/sample/sample.ts">read the sample plugin’s code</a> to see how you might modify it for your own needs.</p>
+<a name="installing-plugins"></a><h2 id="installing-plugins">Installing Plugins</h2>
+<p>We are still working on making it easy to install and run third-party plugins for Vorlon.JS. At the moment, you will need to write and compile plugins in a checked out version of vorlon as above, but we want to make it really easy for you to publish and use plugins with Vorlon.JS. If you have ideas on how we can improve this <a href="https://github.com/MicrosoftDX/Vorlonjs/issues">file an issue on github</a>.</p>
+<p>In the meantime, if you've developed a plugin that you think could go in Vorlon.JS core, <a href="https://github.com/MicrosoftDX/Vorlonjs">submit a pull request</a>.</p>
+
+          </section>
+          <section><a name="contributing"></a><h1>Contributing</h1>
+<p>Vorlon.JS is a fully open source project. It is licensed with the <a href="https://github.com/MicrosoftDX/Vorlonjs/blob/master/LICENSE">MIT License</a>.</p>
+<p>For information on how to develop on the Vorlon.JS server/client itself, and how to contribute, please read the <a href="https://github.com/MicrosoftDX/Vorlonjs/blob/master/README.md">README</a> and <a href="https://github.com/MicrosoftDX/Vorlonjs/blob/master/CONTRIBUTING.md">CONTRIBUTING</a> files over at the <a href="https://github.com/MicrosoftDX/Vorlonjs">github repo</a>.</p>
+
+          </section>
+        </div>
+      </div>
+      <footer class="site-footer">
+        <div class="container">
+          <nav class="nav-footer cf"><a href="/#demo" class="nav-item">See Demo</a><a href="/#getting-started" class="nav-item">Get Started</a><a href="/plugins" class="nav-item">Plugins</a><a href="/documentation" class="nav-item">Documentation</a><a href="/community" class="nav-item">Community</a><a href="https://github.com/MicrosoftDX/Vorlonjs/" class="nav-item">GitHub</a><a href="https://github.com/MicrosoftDX/Vorlonjs/blob/master/LICENSE" class="nav-item">MIT License</a></nav>
+          <h4 class="home"><a href="/" class="footer-logo">Vorlon.JS</a></h4>
+        </div>
+      </footer>
+    </div>
+    <script src="/js/scripts.js"></script>
+  </body>
+</html>
