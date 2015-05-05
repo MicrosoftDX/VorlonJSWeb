@@ -1,0 +1,122 @@
+// Base styling
+
+*, *:after, *:before
+  box-sizing: border-box
+
+html
+  font-size: 100%
+  text-size-adjust: none
+
+body
+  background: $vorlon-purple
+  text-rendering: optimizeLegibility
+  font-smoothing: antialiased
+  font-family: $font-family-roboto
+  font-weight: $font-weight-light
+  font-size: 16px
+  line-height: 1.4
+
+section
+  padding: 40px 15px
+
+.container
+  max-width: 1000px
+  margin: 0 auto
+  position: relative
+
+  &.narrow
+    max-width: 500px
+
+h1, h2, h3
+  text-align: center
+  color: $vorlon-purple
+  font-family: $font-family-oswald
+  font-weight: $font-weight-normal
+
+  a
+    cursor: pointer
+
+h1
+  font-size: 30px
+  margin-bottom: 20px
+  text-transform: uppercase
+
+h2
+  margin-bottom: 20px
+  font-size: 24px
+
+h3
+  font-size: 18px
+  margin-bottom: 10px
+
+hr
+  width: 80%
+  max-width: 400px
+  margin: 0 auto 20px
+  border: none
+  border-bottom: $grey-border
+
+p, pre, ul, ol
+  margin: 0 auto 20px
+  display: block
+  max-width: 500px
+  strong
+    font-weight: $font-weight-normal
+
+img, img.illustration
+  max-width: 400px
+
+img.illustration
+  width: 100%
+
+a
+  font-weight: $font-weight-normal
+  text-decoration: none
+  color: $teal
+  transition: all .2s ease-in
+  &:hover
+    color: darken($teal,20%)
+
+code
+  background: $grey-light
+  border-radius: 3px
+  font-family: $font-family-menlo
+  font-size: 14px
+  color: #555
+
+p
+  code
+    padding: 3px 5px
+    display: inline-block
+
+pre
+  code
+    padding: 15px
+    display: block
+    border: 1px solid $grey-med
+    word-wrap: normal
+    overflow-x: auto
+
+.centered
+  margin-left: auto
+  margin-right: auto
+  text-align: center
+
+// Structure
+
+.content-wrapper
+  background-color: white
+
+// Clearfix
+.cf
+  &:before,
+  &:after
+    content: ' '
+    display: table
+
+  &:after
+    clear: both
+
+// Remove the default bottom margin from a text element    
+.no-gap
+  margin-bottom: 0

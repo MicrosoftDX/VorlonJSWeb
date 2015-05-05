@@ -1,0 +1,29 @@
+// Plugins page styling
+
+.four-o-four-page
+  section
+    padding-top: 60px
+    padding-bottom: 60px
+
+  .site-header // pulling styles from components/header
+    height: 350px
+
+    &:after
+      width: 256px
+      height: 294px
+      content: ''
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+      background: url(../images/404.png) no-repeat center center
+      background-size: contain
+
+  @media screen and (max-width: $small-width)
+
+    .site-header
+      height: 200px
+
+      &:after
+        width: 148px
+        height: 170px

@@ -1,0 +1,187 @@
+// Documentation page styling
+
+.docs-page
+
+  h1, h2, h3
+    text-align: left
+
+  h3
+    margin-bottom: 15px
+
+  p, code, ul, ol, pre
+    margin-left: 0
+    max-width: 700px
+
+  section
+    margin: 0 50px
+    padding: 40px 0
+    border-bottom: $grey-border
+
+
+// Structure
+
+.left-col
+  width: 250px
+  position: fixed
+  top: 0
+  z-index: 1
+
+.right-col
+  min-height: 1000px
+  margin-left: 250px
+  position: relative
+
+
+// Header bar that sit below top navigation
+
+.head-bar
+  width: 100%
+  position: relative
+  background-color: $purple
+
+  &:before
+    width: 500px
+    height: 40px
+    position: absolute
+    top: 0
+    left: -500px
+    z-index: 5
+    content: ''
+    background-color: $purple
+
+  h1.home
+    margin-bottom: 0
+    padding-left: 10px
+    z-index: 5
+    font-size: 100%
+
+    a.logo
+      width: 100px
+      height: auto
+      padding: 0
+      display: inline-block
+      background-image: url(../images/vorlon-pixel-logo-xsmall-white.svg)
+      background-position: 50% 50%
+      background-repeat: no-repeat
+      background-size: 90%
+      font-size: 16px
+      line-height: 40px
+      text-indent: -999rem
+
+  .back-to-top
+    width: 40px
+    height: 40px
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    z-index: 11
+    background-color: $purple-drk
+    background-image: url(../images/icon-up-arrow.svg)
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    background-size: 30%
+    text-indent: -999rem
+
+
+// Documentation navigation
+
+nav.documentation-nav
+  width: 250px
+  padding-left: 15px
+  padding-top: 25px
+  padding-bottom: 20px
+  position: fixed
+  top: 40px
+  bottom: 0
+  overflow-y: auto
+
+  a
+    font-weight: $font-weight-light
+    color: $grey-drk
+    &:hover
+      opacity: .6
+    &.active
+      color: $teal
+      font-weight: $font-weight-normal
+
+  ul
+    margin-bottom: 0
+
+    li
+      padding: 3px 0
+
+    .depth-1
+      padding: 10px 0 5px
+
+      & > a
+        font-weight: $font-weight-normal
+
+    .depth-2
+      margin-left: 10px
+
+    .depth-3
+      margin-left: 20px
+
+
+// Content Column
+
+.docs-intro
+  padding-top: 40px
+
+
+// Targeted Footer Styles
+
+.docs-page
+
+  .site-footer
+    max-width: 1000px
+    margin: 0 auto
+    position: relative
+    z-index: 0
+    background-color: transparent
+
+    .container
+      margin-left: 250px
+
+    .nav-footer
+      .nav-item
+        color: $purple
+
+    h4.home
+      a.footer-logo
+        background-image url(../images/vorlon-pixel-logo-xsmall-purple.svg)
+
+
+// Mobile Styles
+
+@media screen and (max-width: $medium-width)
+
+  .left-col, nav.documentation-nav
+    width: 160px
+
+  .right-col
+    margin-left: 160px
+
+  .docs-page
+    .site-footer
+      .container
+        margin-left: 160px
+
+
+@media screen and (max-width: $small-width)
+
+  .left-col
+    display: none
+
+  .right-col
+    margin-left: 0
+
+  .docs-page
+
+    section
+      margin: 0 20px
+
+    .site-footer
+      .container
+        margin-left: 0

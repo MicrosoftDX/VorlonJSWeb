@@ -1,0 +1,40 @@
+// Icons
+
+.icon
+  width: 40px
+  height: 40px
+  margin: 0 auto 5px
+  display: inline-block
+  background: $green no-repeat center center
+  border-radius: 50%
+  text-align: center
+  text-indent: -999rem
+
+  &:hover
+    background-color: $green-drk
+
+  &.icon-secondary
+    background-color: $grey-med
+
+    &:hover
+      background-color: $grey-drk
+
+  & + .icon
+    margin-left: 5px
+    margin-right: 5px
+
+  &.icon-github
+    background-image: url(../images/icon-github.svg)
+    background-size: 50%
+
+  &.icon-create
+    background-image: url(../images/icon-plus.svg)
+    background-size: 45%
+    
+  &.icon-lightbulb
+    background-image: url(../images/icon-lightbulb.svg)
+    background-size: 30%
+    
+  &.icon-twitter
+    background-image: url(../images/icon-twitter.svg)
+    background-size: 48%

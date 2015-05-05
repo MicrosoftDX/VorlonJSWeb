@@ -1,0 +1,137 @@
+// Plugins page styling
+
+.plugin-container
+  width: 33.33%
+  margin: 10px 0
+  float: left
+
+  &:nth-child(4n+1)
+    clear: left
+
+.plugin
+  min-height: 175px
+  margin: 0 4% 30px
+  padding: 20px
+  border: $grey-border
+
+  h3
+    max-width: 500px
+    margin: 0 auto 20px
+    display: block
+    text-align: left
+
+    a
+      padding: 5px 0
+      color: $vorlon-purple
+      &:hover
+        color: $purple-drk
+
+.features
+
+  .plugin
+    margin-bottom: 0
+    border: 3px solid black(.04)
+    text-align: left
+
+    h3
+      margin-bottom: 10px
+
+.contribute
+  padding-top: 30px
+  position: relative
+  border: 3px solid purple(.3)
+  text-align: center
+  p
+    margin-bottom: 15px
+  hr
+    margin-bottom: 10px
+  h3
+    margin-bottom: 10px
+    text-align: center
+
+p.meta
+  margin-bottom: 10px
+  font-size: 15px
+  
+p.tags
+  padding-left: 20px
+  display: relative
+  position: relative
+  font-size: 13px
+  color: $grey-med
+
+  &:before
+    width: 13px
+    height: 13px
+    position: absolute
+    top: 4px
+    left: 0
+    content: ''
+    background-image: url(../images/icon-tag.svg)
+    background-repeat: no-repeat
+
+.description
+  min-height: 130px
+
+// Form field styles
+
+.form-group
+  max-width: 500px
+  margin: 15px auto 0 auto
+  position: relative
+  
+.search-form
+  width: 100%
+  height: 34px
+  padding: 6px 12px
+  display: block
+  vertical-align: middle
+  border: none
+  border-bottom: 3px solid purple(.3)
+  font-size: 14px
+  line-height: 1.5
+  color: #555
+  transition: border-color ease-in-out .15s
+
+.search-form:focus
+  border-color: $purple
+  outline: 0
+
+.search-form:focus, .clear:focus
+  outline: 0
+
+.clear
+  width: 10px
+  height: 12px
+  position: absolute
+  top: 50%
+  right: 10px
+  transform: translateY(-50%)
+  background: url(../images/icon-x-close.svg)no-repeat
+  background-size: cover
+  border: none
+  cursor: pointer
+
+@media screen and (max-width: $medium-width)
+
+  .plugin-container
+    width: 50%
+
+    &:nth-child(3n+1)
+      clear: none
+    &:nth-child(2n+1)
+      clear: left
+
+  .description
+    min-height: 10px
+    
+  p.tags
+    margin-bottom: 0
+
+@media screen and (max-width: $small-width)
+
+  .plugin-container
+    width: 100%
+
+  .plugin
+    min-height: 0
