@@ -37,6 +37,7 @@
                 <ul>
                   <li class="depth-2"><a href="#vorlonjs-server">Vorlon.JS Server</a></li>
                   <li class="depth-2"><a href="#vorlonjs-client">Vorlon.JS Client</a></li>
+                  <li class="depth-2"><a href="#vorlonjs-client-advanced-notions">Vorlon.JS Client advanced notions</a></li>
                 </ul>
               </li>
               <li class="depth-1"><a href="#vorlonjs-dashboard">Vorlon.JS Dashboard</a>
@@ -83,7 +84,16 @@ The Vorlon server is running
 <p>Before you can start debugging your app you have to enable it to communicate to the Vorlon.JS Server by adding this script tag to your application’s html:</p>
 <pre><code>&lt;script src="http://localhost:1337/vorlon.js"&gt;&lt;/script&gt;
 </code></pre><p>You can also open the <a href="http://cdn.rawgit.com/MicrosoftDX/Vorlonjs/master/Plugins/samples/index.html">sample page</a> to test that your dashboard is working. You should see the client appear in your dashboard when you open that page.</p>
-
+<a name="vorlonjs-client-advanced-notions"></a><h2 id="vorlon-js-client-advanced-notions">Vorlon.JS Client advanced notions</h2>
+<p>If you want to get an unminified version of the plugins on your web page, you can use the following script tag:</p>
+<pre><code>&lt;script src="http://localhost:1337/vorlon.max.js"&gt;&lt;/script&gt;
+</code></pre><p>You can have more control on the moment the client side part is starting by using the autostartdisabled version:</p>
+<pre><code>&lt;script src="http://localhost:1337/vorlon.autostartdisabled.js"&gt;&lt;/script&gt;
+</code></pre><p>which also exist with the unminified version of the code:</p>
+<pre><code>&lt;script src="http://localhost:1337/vorlon.max.autostartdisabled.js"&gt;&lt;/script&gt;
+</code></pre><p>Once this is done, you can start the vorlon client and connect it to the dashbard of you choice using the session id you want:</p>
+<pre><code>VORLON.Core.Start("http://localhost:1337", "default");
+</code></pre>
           </section>
           <section><a name="vorlonjs-dashboard"></a><h1>Vorlon.JS Dashboard</h1>
 <p>The Vorlon.JS dashboard is designed to help debug and test remote JavaScript applications and the UI is geared towards that goal. The dashboard has two major sections, the client summary view and the plugin view.</p>
