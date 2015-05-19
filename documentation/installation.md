@@ -65,7 +65,7 @@ By default, it looks like this :
     
 It is obviously using the JSON (JavaScript Simple Object Notation) format and is easy to understand: each line in the "plugins" array represents a plugin.
 
-For isntance, you can change the folder where the plugin is installed. This folder has to be located under :
+For instance, you can change the folder where the plugin is installed. This folder has to be located under :
 
     Server/public/vorlon/plugins
     
