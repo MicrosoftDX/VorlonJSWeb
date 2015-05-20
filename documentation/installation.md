@@ -42,3 +42,42 @@ which also exist with the unminified version of the code:
 Once this is done, you can start the vorlon client and connect it to the dashbard of you choice using the session id you want:
 
     VORLON.Core.Start("http://localhost:1337", "default");
+    
+## Vorlon.JS Server advanced topics
+
+If you do not want to use a specific plugin in your dashboard and disable it also on the client part, you can use the catalog.json file on the server.
+To be able to do this, you need to use Vorlon.js downloaded and installed from the GitHub repository. You can also modify the package downloaded from npm but this is not recommended.
+
+The file is located on the following folder :
+
+    Server/public/catalog.json
+    
+By default, it looks like this :
+
+    {
+        "plugins": [
+            { "id": "CONSOLE", "name": "Interactive Console", "panel": "bottom", "foldername" : "interactiveConsole"},
+            { "id": "DOM", "name": "Dom Explorer", "panel": "top", "foldername" : "domExplorer" },
+            { "id": "MODERNIZR", "name": "Modernizr","panel": "bottom", "foldername" : "modernizrReport" },
+            { "id" : "OBJEXPLORER", "name" : "Obj. Explorer","panel": "top", "foldername" : "objectExplorer" }
+        ]
+    }
+    
+It is obviously using the JSON (JavaScript Simple Object Notation) format and is easy to understand: each line in the "plugins" array represents a plugin.
+
+For instance, you can change the folder where the plugin is installed. This folder has to be located under :
+
+    Server/public/vorlon/plugins
+    
+By convention, this name needs to be the same as the JavaScript file for the plugin for either the max file :
+
+    {FOLDERNAME}.js
+    
+and the min version :
+
+    {FOLDERNAME}.min.js
+    
+You can also choose in which panel the plugin should be displayed using the "panel" property. It can be either "bottom" or "top".
+
+You can add and remove plugins here. 
+It will impact the dashbard by not displaying a removed plugin and also the client JavaScript file which is sent to the client website.
