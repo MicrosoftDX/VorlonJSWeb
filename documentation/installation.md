@@ -55,6 +55,7 @@ The file is located on the following folder :
 By default, it looks like this :
 
     {
+        "includeSocketIO": true,
         "plugins": [
             { "id": "CONSOLE", "name": "Interactive Console", "panel": "bottom", "foldername" : "interactiveConsole"},
             { "id": "DOM", "name": "Dom Explorer", "panel": "top", "foldername" : "domExplorer" },
@@ -65,15 +66,15 @@ By default, it looks like this :
     
 It is obviously using the JSON (JavaScript Simple Object Notation) format and is easy to understand: each line in the "plugins" array represents a plugin.
 
-For instance, you can change the folder where the plugin is installed. This folder has to be located under :
+For instance, you can change the folder where the plugin is installed. This folder has to be located under:
 
     Server/public/vorlon/plugins
     
-By convention, this name needs to be the same as the JavaScript file for the plugin for either the max file :
+By convention, this name needs to be the same as the JavaScript file for the plugin for either the max file:
 
     {FOLDERNAME}.js
     
-and the min version :
+and the min version:
 
     {FOLDERNAME}.min.js
     
@@ -81,3 +82,7 @@ You can also choose in which panel the plugin should be displayed using the "pan
 
 You can add and remove plugins here. 
 It will impact the dashbard by not displaying a removed plugin and also the client JavaScript file which is sent to the client website.
+
+We also added the option to NOT automatically include socket.io in the script returned to the client. You can disable socket.io embedding by setting:
+
+    "includeSocketIO": false
