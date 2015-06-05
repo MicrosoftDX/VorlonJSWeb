@@ -35,3 +35,7 @@ To make it easy to get started, we’ve created a sample plugin. This adds an in
 We are still working on making it easy to install and run third-party plugins for Vorlon.JS. At the moment, you will need to write and compile plugins in a checked out version of vorlon as above, but we want to make it really easy for you to publish and use plugins with Vorlon.JS. If you have ideas on how we can improve this [file an issue on github](https://github.com/MicrosoftDX/Vorlonjs/issues).
 
 In the meantime, if you've developed a plugin that you think could go in Vorlon.JS core, [submit a pull request](https://github.com/MicrosoftDX/Vorlonjs).
+
+
+## Useful reading
+ [How to create a plugin](http://blogs.msdn.com/b/emargraff/archive/2015/06/01/how-to-create-a-vorlon-js-plugin.aspx) by Etienne Margraff
