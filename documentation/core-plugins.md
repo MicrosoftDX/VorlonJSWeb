@@ -25,3 +25,11 @@ The Modernizr tab will show you the supported browser features as reported by [M
 ## Object Explorer
 
 The Object explorer tab will show you all JavaScript variable living on the remote page. You can click on object to see inner properties.
+
+## XHR panel
+
+The XHR panel will help you analyze XHR calls sent by your devices. You can track status code and others useful information.
+
+## ngInspector
+
+The ngInspector tab is a tool that will display your Angular.js scopes. You can see inner scopes and even ngRepeat constructs.

@@ -45,22 +45,27 @@ Once this is done, you can start the vorlon client and connect it to the dashbar
     
 ## Vorlon.JS Server advanced topics
 
-If you do not want to use a specific plugin in your dashboard and disable it also on the client part, you can use the catalog.json file on the server.
+If you do not want to use a specific plugin in your dashboard and disable it also on the client part, you can use the config.json file on the server.
 To be able to do this, you need to use Vorlon.js downloaded and installed from the GitHub repository. You can also modify the package downloaded from npm but this is not recommended.
 
 The file is located on the following folder :
 
-    Server/public/catalog.json
+    Server/config.json
     
 By default, it looks like this :
 
     {
         "includeSocketIO": true,
+        "useSSL": true,
+        "SSLkey": "cert/server.key",
+        "SSLcert": "cert/server.crt",
         "plugins": [
-            { "id": "CONSOLE", "name": "Interactive Console", "panel": "bottom", "foldername" : "interactiveConsole"},
-            { "id": "DOM", "name": "Dom Explorer", "panel": "top", "foldername" : "domExplorer" },
-            { "id": "MODERNIZR", "name": "Modernizr","panel": "bottom", "foldername" : "modernizrReport" },
-            { "id" : "OBJEXPLORER", "name" : "Obj. Explorer","panel": "top", "foldername" : "objectExplorer" }
+            { "id": "CONSOLE", "name": "Interactive Console", "panel": "bottom", "foldername" : "interactiveConsole", "enabled": true},
+            { "id": "DOM", "name": "Dom Explorer", "panel": "top", "foldername" : "domExplorer", "enabled": true },
+            { "id": "MODERNIZR", "name": "Modernizr","panel": "bottom", "foldername" : "modernizrReport", "enabled": true },
+            { "id" : "OBJEXPLORER", "name" : "Obj. Explorer","panel": "top", "foldername" : "objectExplorer", "enabled": true },
+            { "id" : "XHRPANEL", "name" : "XHR","panel": "top", "foldername" : "xhrPanel", "enabled": true  },
+            { "id" : "NGINSPECTOR", "name" : "ngInspector","panel": "top", "foldername" : "ngInspector", "enabled": false  }
         ]
     }
     
@@ -86,3 +91,5 @@ It will impact the dashbard by not displaying a removed plugin and also the clie
 We also added the option to NOT automatically include socket.io in the script returned to the client. You can disable socket.io embedding by setting:
 
     "includeSocketIO": false
+    
+If you want to support SSL and HTTPS, you just have to set "useSSL" to true and then define SSLKey and SSLcert files.
