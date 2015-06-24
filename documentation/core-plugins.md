@@ -33,3 +33,11 @@ The XHR panel will help you analyze XHR calls sent by your devices. You can trac
 ## ngInspector
 
 The ngInspector tab is a tool that will display your Angular.js scopes. You can see inner scopes and even ngRepeat constructs.
+
+## Network Monitor
+
+The Network Monitor brings the ability to see all network exchanges done between the browser and the web server. It provides the resource name, the server domain, the type of request, the duration in milliseconds and a nice visual timeline.
+
+## Resources Explorer
+
+The Resources Explorer provides information about what is locally stored on the client instance such as sessions, cookies, and local storage. This can be really useful when you want to debug local cache or login / persistent user data issues.
