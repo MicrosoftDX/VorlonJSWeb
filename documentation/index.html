@@ -108,7 +108,7 @@ The Vorlon server is running
 </code></pre><p>which also exist with the unminified version of the code:</p>
 <pre><code>&lt;script src="http://localhost:1337/vorlon.max.autostartdisabled.js"&gt;&lt;/script&gt;
 </code></pre><p>Once this is done, you can start the vorlon client and connect it to the dashbard of you choice using the session id you want:</p>
-<pre><code>VORLON.Core.Start("http://localhost:1337", "default");
+<pre><code>VORLON.Core.StartClientSide("http://localhost:1337", "default");
 </code></pre><a name="vorlonjs-server-advanced-topics"></a><h2 id="vorlon-js-server-advanced-topics">Vorlon.JS Server advanced topics</h2>
 <p>If you do not want to use a specific plugin in your dashboard and disable it also on the client part, you can use the config.json file on the server.
 To be able to do this, you need to use Vorlon.js downloaded and installed from the GitHub repository. You can also modify the package downloaded from npm but this is not recommended.</p>

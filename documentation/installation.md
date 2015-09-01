@@ -41,7 +41,7 @@ which also exist with the unminified version of the code:
     
 Once this is done, you can start the vorlon client and connect it to the dashbard of you choice using the session id you want:
 
-    VORLON.Core.Start("http://localhost:1337", "default");
+    VORLON.Core.StartClientSide("http://localhost:1337", "default");
     
 ## Vorlon.JS Server advanced topics
 
