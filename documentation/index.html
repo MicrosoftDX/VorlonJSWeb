@@ -49,6 +49,7 @@
                   <li class="depth-2"><a href="#vorlonjs-client">Vorlon.JS Client</a></li>
                   <li class="depth-2"><a href="#vorlonjs-client-advanced-topics">Vorlon.JS Client advanced topics</a></li>
                   <li class="depth-2"><a href="#vorlonjs-server-advanced-topics">Vorlon.JS Server advanced topics</a></li>
+                  <li class="depth-2"><a href="#configure-authentication">Configure authentication</a></li>
                 </ul>
               </li>
               <li class="depth-1"><a href="#vorlonjs-dashboard">Vorlon.JS Dashboard</a>
@@ -142,6 +143,14 @@ It will impact the dashbard by not displaying a removed plugin and also the clie
 <p>We also added the option to NOT automatically include socket.io in the script returned to the client. You can disable socket.io embedding by setting:</p>
 <pre><code>"includeSocketIO": false
 </code></pre><p>If you want to support SSL and HTTPS, you just have to set "useSSL" to true and then define SSLKey and SSLcert files.</p>
+<a name="configure-authentication"></a><h2 id="configure-authentication">Configure authentication</h2>
+<p>You can activate a basic authentication on the Vorlon.js dashboard by adding 3 values to the config.json file.</p>
+<pre><code>"activateAuth": true,
+"username": "CHANGEHERE",
+"password": "CHANGEHERE"
+</code></pre><p>If the "activateAuth" is set to true, you will be redirected to the login page on the first navigation on the dashboard.
+You then need to give the information set on the "username" et "password" settings value.</p>
+<p>This allows you to configure a remote Vorlon.js dashboard without risking everyone to access it.</p>
 
           </section>
           <section><a name="vorlonjs-dashboard"></a><h1>Vorlon.JS Dashboard</h1>
