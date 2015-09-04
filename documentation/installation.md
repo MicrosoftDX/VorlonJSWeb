@@ -93,3 +93,16 @@ We also added the option to NOT automatically include socket.io in the script re
     "includeSocketIO": false
     
 If you want to support SSL and HTTPS, you just have to set "useSSL" to true and then define SSLKey and SSLcert files.
+
+## Configure authentication
+
+You can activate a basic authentication on the Vorlon.js dashboard by adding 3 values to the config.json file.
+
+    "activateAuth": true,
+    "username": "CHANGEHERE",
+    "password": "CHANGEHERE"
+    
+If the "activateAuth" is set to true, you will be redirected to the login page on the first navigation on the dashboard.
+You then need to give the information set on the "username" et "password" settings value.
+
+This allows you to configure a remote Vorlon.js dashboard without risking everyone to access it.
