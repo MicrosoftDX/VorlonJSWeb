@@ -41,3 +41,7 @@ The Network Monitor brings the ability to see all network exchanges done between
 ## Resources Explorer
 
 The Resources Explorer provides information about what is locally stored on the client instance such as sessions, cookies, and local storage. This can be really useful when you want to debug local cache or login / persistent user data issues.
+
+## Best practices
+
+This plugins checks for many rules related to best practices and web standards for your website. It can be usefull to detect various implementation details like accessibility, css checks like prefixes, ... The rules system and extensible. It means that you could contribute additionnal rules, or build rules for yourself based on your own needs.

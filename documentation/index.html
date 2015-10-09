@@ -68,6 +68,7 @@
                   <li class="depth-2"><a href="#nginspector">ngInspector</a></li>
                   <li class="depth-2"><a href="#network-monitor">Network Monitor</a></li>
                   <li class="depth-2"><a href="#resources-explorer">Resources Explorer</a></li>
+                  <li class="depth-2"><a href="#best-practices">Best practices</a></li>
                 </ul>
               </li>
               <li class="depth-1"><a href="#creating-plugins">Creating Plugins</a>
@@ -77,6 +78,13 @@
                   <li class="depth-3"><a href="#sample-plugin">Sample Plugin</a></li>
                   <li class="depth-2"><a href="#installing-plugins">Installing Plugins</a></li>
                   <li class="depth-2"><a href="#useful-reading">Useful reading</a></li>
+                </ul>
+              </li>
+              <li class="depth-1"><a href="#vorlon-proxy">Vorlon proxy</a>
+                <ul>
+                  <li class="depth-2"><a href="#how-does-it-work">How does it work ?</a></li>
+                  <li class="depth-2"><a href="#running-proxy-locally">Running proxy locally</a></li>
+                  <li class="depth-2"><a href="#hosting-the-proxy">hosting the proxy</a></li>
                 </ul>
               </li>
               <li class="depth-1"><a href="#contributing">Contributing</a>
@@ -159,29 +167,32 @@ You then need to give the information set on the "username" et "password" settin
 <a name="configure-vorlon-behind-a-nginx-proxy"></a><h2 id="configure-vorlon-behind-a-nginx-proxy">Configure Vorlon behind a Nginx proxy</h2>
 <p>Edit your nginx.conf, find <strong>server {</strong> and use this (don't forget to change the paths below to your own paths).</p>
 <pre><code>server {
-        listen       80;
-        server_name  YOURSERVERNAME;                                                                                                                                                      
 
-        root /PATH/TO/Vorlonjs/Server/public;
+    server_name  vorlon;
 
-        location ~* ^.+.(jpg|jpeg|gif|css|png|ico|xml)$ {
-                expires          1d;
-        }
+    location ~ ^/(fonts/|images/|javascripts/|stylesheets/|vorlon/|vorlon.dashboardManager.js|robots.txt|humans.txt|favicon.ico) {
+             root /PATH/TO/Vorlonjs/Server/public;
+             access_log off;
+             expires 24h;
+    }
 
-        location /YOURSUBDIRECTORY/ {
-                proxy_pass       http://localhost:1337;
-                proxy_set_header Host      $host;
-                proxy_set_header X-Real-IP $remote_addr;
-        }
+    location /test {
+             proxy_set_header Upgrade $http_upgrade;
+             proxy_set_header Connection "upgrade";
+             proxy_http_version 1.1;
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+             proxy_set_header Host      $host;
+             proxy_pass http://localhost:1337;
+    }
 
-        location /socket.io/ {
-                proxy_pass http://localhost:1337;
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection "upgrade";
-                proxy_set_header Host $host;
-        }
-}
+    location /socket.io {
+             proxy_set_header Upgrade $http_upgrade;
+             proxy_set_header Connection "upgrade";
+             proxy_http_version 1.1;
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+             proxy_set_header Host      $host;
+             proxy_pass http://localhost:1337;
+    }
 </code></pre>
           </section>
           <section><a name="vorlonjs-dashboard"></a><h1>Vorlon.JS Dashboard</h1>
@@ -210,6 +221,8 @@ You then need to give the information set on the "username" et "password" settin
 <p>The Network Monitor brings the ability to see all network exchanges done between the browser and the web server. It provides the resource name, the server domain, the type of request, the duration in milliseconds and a nice visual timeline.</p>
 <a name="resources-explorer"></a><h2 id="resources-explorer">Resources Explorer</h2>
 <p>The Resources Explorer provides information about what is locally stored on the client instance such as sessions, cookies, and local storage. This can be really useful when you want to debug local cache or login / persistent user data issues.</p>
+<a name="best-practices"></a><h2 id="best-practices">Best practices</h2>
+<p>This plugins checks for many rules related to best practices and web standards for your website. It can be usefull to detect various implementation details like accessibility, css checks like prefixes, ... The rules system and extensible. It means that you could contribute additionnal rules, or build rules for yourself based on your own needs.</p>
 
           </section>
           <section><a name="creating-plugins"></a><h1>Creating Plugins</h1>
@@ -231,6 +244,21 @@ npm start
 <p>In the meantime, if you've developed a plugin that you think could go in Vorlon.JS core, <a href="https://github.com/MicrosoftDX/Vorlonjs">submit a pull request</a>.</p>
 <a name="useful-reading"></a><h2 id="useful-reading">Useful reading</h2>
 <p> <a href="http://blogs.msdn.com/b/emargraff/archive/2015/06/01/how-to-create-a-vorlon-js-plugin.aspx">How to create a plugin</a> by Etienne Margraff</p>
+
+          </section>
+          <section><a name="vorlon-proxy"></a><h1>Vorlon proxy</h1>
+<p>Sometimes you must audit, test, or debug a website in production and you don't have Vorlon script injected in your pages. 
+For all such cases, you could now use Vorlon "proxy" feature to open your site.</p>
+<a name="how-does-it-work"></a><h2 id="how-does-it-work-">How does it work ?</h2>
+<p>The proxy is a tool built with node.js, running server side on a separate process (and therefore a separate port or domain if you must deploy it). When the proxy is called with a target url, it will forward this http call (and all subsequent calls) to the target. The proxy will injects Vorlon's client script in the page for you in the meantime. To manage subsequent calls for resources from the website (like css, scripts, images, ...), the proxy create a cookie on first call with the target url. The (necessary) use of a cookie means that it is unadvised to run multiple Vorlon inspection using proxy with the same browser instance (because this cookie will be shared among browser tabs).</p>
+<a name="running-proxy-locally"></a><h2 id="running-proxy-locally">Running proxy locally</h2>
+<p>First you must check that the proxy has been enabled. Open config.json and verify that "enableWebproxy" is set to true, and start your Vorlon server (using "npm start" for example). That's the only thing you must have to do. If you run the proxy locally, you could go to <a href="http://localhost:1337/httpproxy">http://localhost:1337/httpproxy</a> to open a helper page. The proxy itself will listen on port 5050 (by default). In case of trouble, look at the console for your server. At the very beginning you must have a trace indicating that the server and the proxy have started, and which port they are running on.</p>
+<a name="hosting-the-proxy"></a><h2 id="hosting-the-proxy">hosting the proxy</h2>
+<p>Vorlon server and proxy resides on different processes and could be deployed separately. To work properly, the proxy must be listening at the root of a http domain. The proxy cannot work if it's set on a path like "<a href="http://vorlonjs.com/documentation/">http://vorlonjs.com/documentation/</a>". This is due to the fact that inspected web pages may have url relative to the httpdomain (url starting with "/"). If the proxy is not listening at the root, it won't be able to catch those calls.</p>
+<p>If you want to host a Vorlon instance with the proxy feature, their are a few configurations that you may find usefull :
+"vorlonServerURL" is used by the proxy to build the url of Vorlon client script
+"vorlonProxyURL" is used by the Vorlon server to send requests to the proxy</p>
+<p>if empty, "vorlonServerURL" and "vorlonProxyURL" default to localhost with the proper port.</p>
 
           </section>
           <section><a name="contributing"></a><h1>Contributing</h1>
