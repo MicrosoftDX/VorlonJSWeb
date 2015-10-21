@@ -51,7 +51,8 @@
                   <li class="depth-2"><a href="#vorlonjs-server-advanced-topics">Vorlon.JS Server advanced topics</a></li>
                   <li class="depth-2"><a href="#configure-base-url">Configure base URL</a></li>
                   <li class="depth-2"><a href="#configure-authentication">Configure authentication</a></li>
-                  <li class="depth-2"><a href="#configure-vorlon-behind-a-nginx-proxy">Configure Vorlon behind a Nginx proxy</a></li>
+                  <li class="depth-2"><a href="#ssl-support">SSL Support</a></li>
+                  <li class="depth-2"><a href="#ssl-support-on-azure">SSL Support on Azure</a></li>
                 </ul>
               </li>
               <li class="depth-1"><a href="#vorlonjs-dashboard">Vorlon.JS Dashboard</a>
@@ -128,6 +129,7 @@ To be able to do this, you need to use Vorlon.js downloaded and installed from t
 </code></pre><p>By default, it looks like this :</p>
 <pre><code>{
     "includeSocketIO": true,
+    "useSSLAzure": false,
     "useSSL": true,
     "SSLkey": "cert/server.key",
     "SSLcert": "cert/server.crt",
@@ -164,7 +166,41 @@ It will impact the dashbard by not displaying a removed plugin and also the clie
 </code></pre><p>If the "activateAuth" is set to true, you will be redirected to the login page on the first navigation on the dashboard.
 You then need to give the information set on the "username" et "password" settings value.</p>
 <p>This allows you to configure a remote Vorlon.js dashboard without risking everyone to access it.</p>
-<a name="configure-vorlon-behind-a-nginx-proxy"></a><h2 id="configure-vorlon-behind-a-nginx-proxy">Configure Vorlon behind a Nginx proxy</h2>
+<a name="ssl-support"></a><h2 id="ssl-support">SSL Support</h2>
+<p>If you want to run the server with SSL support proceed as follows:</p>
+<ol>
+<li>Install Vorlonjs following the steps in Easy Setup</li>
+<li>Navigate to the installation folder</li>
+<li>Modify JSON file to activate SSL support</li>
+<li>In JSON file set to true </li>
+<li>If you want to replace our localhost certificate should only change the path of the files with the private key and certificate</li>
+<li>Exit and save JSON file
+{
+ "useSSLAzure: false,
+ "useSSL": true,
+ "SSLkey": "server/cert/server.key",
+ "SSLcert": "server/cert/server.crt",
+ "includeSocketIO": true,
+ "plugins": <pre><code> ...
+</code></pre>}</li>
+</ol>
+<a name="ssl-support-on-azure"></a><h2 id="ssl-support-on-azure">SSL Support on Azure</h2>
+<ol>
+<li>Navigate to the installation folder</li>
+<li>Modify JSON file to activate SSLAzure support</li>
+<li>In JSON file set to true</li>
+<li>Exit and save JSON file</li>
+<li>Navigate with https protole on your Azure WebSite
+{
+ "useSSLAzure: true,
+ "useSSL": false,
+ "SSLkey": "",
+ "SSLcert": "",
+ "includeSocketIO": true,
+ "plugins": <pre><code>...
+</code></pre>}<h2 id="configure-vorlon-behind-a-nginx-proxy">Configure Vorlon behind a Nginx proxy</h2>
+</li>
+</ol>
 <p>Edit your nginx.conf, find <strong>server {</strong> and use this (don't forget to change the paths below to your own paths).</p>
 <pre><code>server {
 
