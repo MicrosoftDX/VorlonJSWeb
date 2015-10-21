@@ -118,12 +118,12 @@ This allows you to configure a remote Vorlon.js dashboard without risking everyo
 
 If you want to run the server with SSL support proceed as follows:
 
- - Install Vorlonjs following the steps in Easy Setup
- - Navigate to the installation folder
- - Modify JSON file to activate SSL support
- - In JSON file set to true 
- - If you want to replace our localhost certificate should only change the path of the files with the private key and certificate
- - Exit and save JSON file
+ - 1.Install Vorlonjs following the steps in Easy Setup
+ - 2.Navigate to the installation folder
+ - 3.Modify JSON file to activate SSL support
+ - 4.In JSON file set to true 
+ - 5.If you want to replace our localhost certificate should only change the path of the files with the private key and certificate
+ - 6.Exit and save JSON file
         
         {
             "useSSLAzure: false,
@@ -137,11 +137,11 @@ If you want to run the server with SSL support proceed as follows:
 
 ## SSL Support on Azure
 
- - Navigate to the installation folder
- - Modify JSON file to activate SSLAzure support
- - In JSON file set to true
- - Exit and save JSON file
- - Navigate with https protole on your Azure WebSite
+ - 1.Navigate to the installation folder
+ - 2.Modify JSON file to activate SSLAzure support
+ - 3.In JSON file set to true
+ - 4.Exit and save JSON file
+ - 5.Navigate with https protole on your Azure WebSite
        
         {
             "useSSLAzure: true,
