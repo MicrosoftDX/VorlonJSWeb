@@ -124,15 +124,15 @@ If you want to run the server with SSL support proceed as follows:
 4. In JSON file set to true 
 5. If you want to replace our localhost certificate should only change the path of the files with the private key and certificate
 6. Exit and save JSON file
-    {
-        "useSSLAzure: false,
-        "useSSL": true,
-        "SSLkey": "server/cert/server.key",
-        "SSLcert": "server/cert/server.crt",
-        "includeSocketIO": true,
-        "plugins": 
-            ...
-    }
+        {
+            "useSSLAzure: false,
+            "useSSL": true,
+            "SSLkey": "server/cert/server.key",
+            "SSLcert": "server/cert/server.crt",
+            "includeSocketIO": true,
+            "plugins": 
+                ...
+        }
 
 ## SSL Support on Azure
 
@@ -141,15 +141,15 @@ If you want to run the server with SSL support proceed as follows:
 3. In JSON file set to true
 4. Exit and save JSON file
 5. Navigate with https protole on your Azure WebSite
-    {
-        "useSSLAzure: true,
-        "useSSL": false,
-        "SSLkey": "",
-        "SSLcert": "",
-        "includeSocketIO": true,
-        "plugins": 
-        ...
-    }
+        {
+            "useSSLAzure: true,
+            "useSSL": false,
+            "SSLkey": "",
+            "SSLcert": "",
+            "includeSocketIO": true,
+            "plugins": 
+            ...
+        }
     
 ## Configure Vorlon behind a Nginx proxy
 
