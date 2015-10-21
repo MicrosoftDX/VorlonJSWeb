@@ -175,15 +175,16 @@ You then need to give the information set on the "username" et "password" settin
 <li>Modify JSON file to activate SSL support</li>
 <li>In JSON file set to true </li>
 <li>If you want to replace our localhost certificate should only change the path of the files with the private key and certificate</li>
-<li>Exit and save JSON file<pre><code>  {
-      "useSSLAzure: false,
-      "useSSL": true,
-      "SSLkey": "server/cert/server.key",
-      "SSLcert": "server/cert/server.crt",
-      "includeSocketIO": true,
-      "plugins": 
-          ...
-  }
+<li><p>Exit and save JSON file</p>
+<pre><code> {
+     "useSSLAzure: false,
+     "useSSL": true,
+     "SSLkey": "server/cert/server.key",
+     "SSLcert": "server/cert/server.crt",
+     "includeSocketIO": true,
+     "plugins": 
+         ...
+ }
 </code></pre></li>
 </ul>
 <a name="ssl-support-on-azure"></a><h2 id="ssl-support-on-azure">SSL Support on Azure</h2>
@@ -192,15 +193,16 @@ You then need to give the information set on the "username" et "password" settin
 <li>Modify JSON file to activate SSLAzure support</li>
 <li>In JSON file set to true</li>
 <li>Exit and save JSON file</li>
-<li>Navigate with https protole on your Azure WebSite<pre><code>  {
-      "useSSLAzure: true,
-      "useSSL": false,
-      "SSLkey": "",
-      "SSLcert": "",
-      "includeSocketIO": true,
-      "plugins": 
-      ...
-  }
+<li><p>Navigate with https protole on your Azure WebSite</p>
+<pre><code> {
+     "useSSLAzure: true,
+     "useSSL": false,
+     "SSLkey": "",
+     "SSLcert": "",
+     "includeSocketIO": true,
+     "plugins": 
+     ...
+ }
 </code></pre></li>
 </ul>
 <a name="configure-vorlon-behind-a-nginx-proxy"></a><h2 id="configure-vorlon-behind-a-nginx-proxy">Configure Vorlon behind a Nginx proxy</h2>
