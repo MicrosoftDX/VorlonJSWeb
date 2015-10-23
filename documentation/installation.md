@@ -56,6 +56,7 @@ By default, it looks like this :
 
     {
         "includeSocketIO": true,
+        "useSSLAzure": false,
         "useSSL": true,
         "SSLkey": "cert/server.key",
         "SSLcert": "cert/server.crt",
@@ -113,6 +114,45 @@ You then need to give the information set on the "username" et "password" settin
 
 This allows you to configure a remote Vorlon.js dashboard without risking everyone to access it.
 
+## SSL Support
+
+If you want to run the server with SSL support proceed as follows:
+
+ - 1.Install Vorlonjs following the steps in Easy Setup
+ - 2.Navigate to the installation folder
+ - 3.Modify JSON file to activate SSL support
+ - 4.In JSON file set to true 
+ - 5.If you want to replace our localhost certificate should only change the path of the files with the private key and certificate
+ - 6.Exit and save JSON file
+        
+        {
+            "useSSLAzure: false,
+            "useSSL": true,
+            "SSLkey": "server/cert/server.key",
+            "SSLcert": "server/cert/server.crt",
+            "includeSocketIO": true,
+            "plugins": 
+                ...
+        }
+
+## SSL Support on Azure
+
+ - 1.Navigate to the installation folder
+ - 2.Modify JSON file to activate SSLAzure support
+ - 3.In JSON file set to true
+ - 4.Exit and save JSON file
+ - 5.Navigate with https protole on your Azure WebSite
+       
+        {
+            "useSSLAzure: true,
+            "useSSL": false,
+            "SSLkey": "",
+            "SSLcert": "",
+            "includeSocketIO": true,
+            "plugins": 
+            ...
+        }
+    
 ## Configure Vorlon behind a Nginx proxy
 
 Edit your nginx.conf, find **server {** and use this (don't forget to change the paths below to your own paths).
