@@ -41,3 +41,15 @@ The Network Monitor brings the ability to see all network exchanges done between
 ## Resources Explorer
 
 The Resources Explorer provides information about what is locally stored on the client instance such as sessions, cookies, and local storage. This can be really useful when you want to debug local cache or login / persistent user data issues.
+
+## Unit Test for qUnit
+
+The unit test plugin helps you to run qUnit tests remotely from the Dashboard. You can upload a JavaScript file containing your tests or type test directly in the plugin. Hit the "Run tests" button and you get the results in the dashboard !
+
+## My Device 
+	
+This displays you a lot of informations coming from the client such as the user agent, the size of the screen, the pixel per points, etc. The informations are dynamically updated if you redimension your browser.
+
+## Best Practices
+
+THis plugin process a lot of tests on your website. It will give your tips about how to improve your code through 4 categories : Accessibility, Mobile Web, Performances, Web standards.
