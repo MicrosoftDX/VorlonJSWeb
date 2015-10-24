@@ -50,6 +50,6 @@ The unit test plugin helps you to run qUnit tests remotely from the Dashboard. Y
 	
 This displays you a lot of informations coming from the client such as the user agent, the size of the screen, the pixel per points, etc. The informations are dynamically updated if you redimension your browser.
 
-## Best Practices
+## Best practices
 
-THis plugin process a lot of tests on your website. It will give your tips about how to improve your code through 4 categories : Accessibility, Mobile Web, Performances, Web standards.
+This plugins checks for many rules related to best practices and web standards for your website. It can be usefull to detect various implementation details like accessibility, css checks like prefixes, ... The rules system and extensible. It means that you could contribute additionnal rules, or build rules for yourself based on your own needs.

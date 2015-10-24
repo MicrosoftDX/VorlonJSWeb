@@ -49,7 +49,11 @@
                   <li class="depth-2"><a href="#vorlonjs-client">Vorlon.JS Client</a></li>
                   <li class="depth-2"><a href="#vorlonjs-client-advanced-topics">Vorlon.JS Client advanced topics</a></li>
                   <li class="depth-2"><a href="#vorlonjs-server-advanced-topics">Vorlon.JS Server advanced topics</a></li>
+                  <li class="depth-2"><a href="#configure-base-url">Configure base URL</a></li>
                   <li class="depth-2"><a href="#configure-authentication">Configure authentication</a></li>
+                  <li class="depth-2"><a href="#ssl-support">SSL Support</a></li>
+                  <li class="depth-2"><a href="#ssl-support-on-azure">SSL Support on Azure</a></li>
+                  <li class="depth-2"><a href="#configure-vorlon-behind-a-nginx-proxy">Configure Vorlon behind a Nginx proxy</a></li>
                 </ul>
               </li>
               <li class="depth-1"><a href="#vorlonjs-dashboard">Vorlon.JS Dashboard</a>
@@ -66,9 +70,13 @@
                   <li class="depth-2"><a href="#nginspector">ngInspector</a></li>
                   <li class="depth-2"><a href="#network-monitor">Network Monitor</a></li>
                   <li class="depth-2"><a href="#resources-explorer">Resources Explorer</a></li>
+<<<<<<< HEAD
                   <li class="depth-2"><a href="#unit-test-for-qunit">Unit Test for qUnit</a></li>
                   <li class="depth-2"><a href="#my-device">My Device</a></li>
                   <li class="depth-2"><a href="#best-practices">Best Practices</a></li>
+=======
+                  <li class="depth-2"><a href="#best-practices">Best practices</a></li>
+>>>>>>> b05bf13c0f3310140452c8a12f2926e5b113576f
                 </ul>
               </li>
               <li class="depth-1"><a href="#creating-plugins">Creating Plugins</a>
@@ -78,6 +86,13 @@
                   <li class="depth-3"><a href="#sample-plugin">Sample Plugin</a></li>
                   <li class="depth-2"><a href="#installing-plugins">Installing Plugins</a></li>
                   <li class="depth-2"><a href="#useful-reading">Useful reading</a></li>
+                </ul>
+              </li>
+              <li class="depth-1"><a href="#vorlon-proxy">Vorlon proxy</a>
+                <ul>
+                  <li class="depth-2"><a href="#how-does-it-work">How does it work ?</a></li>
+                  <li class="depth-2"><a href="#running-proxy-locally">Running proxy locally</a></li>
+                  <li class="depth-2"><a href="#hosting-the-proxy">hosting the proxy</a></li>
                 </ul>
               </li>
               <li class="depth-1"><a href="#contributing">Contributing</a>
@@ -121,6 +136,7 @@ To be able to do this, you need to use Vorlon.js downloaded and installed from t
 </code></pre><p>By default, it looks like this :</p>
 <pre><code>{
     "includeSocketIO": true,
+    "useSSLAzure": false,
     "useSSL": true,
     "SSLkey": "cert/server.key",
     "SSLcert": "cert/server.crt",
@@ -146,7 +162,10 @@ It will impact the dashbard by not displaying a removed plugin and also the clie
 <p>We also added the option to NOT automatically include socket.io in the script returned to the client. You can disable socket.io embedding by setting:</p>
 <pre><code>"includeSocketIO": false
 </code></pre><p>If you want to support SSL and HTTPS, you just have to set "useSSL" to true and then define SSLKey and SSLcert files.</p>
-<a name="configure-authentication"></a><h2 id="configure-authentication">Configure authentication</h2>
+<a name="configure-base-url"></a><h2 id="configure-base-url">Configure base URL</h2>
+<p>You can change the base URL path in config.json.</p>
+<pre><code>"baseURL": "/your/directory"
+</code></pre><a name="configure-authentication"></a><h2 id="configure-authentication">Configure authentication</h2>
 <p>You can activate a basic authentication on the Vorlon.js dashboard by adding 3 values to the config.json file.</p>
 <pre><code>"activateAuth": true,
 "username": "CHANGEHERE",
@@ -154,7 +173,74 @@ It will impact the dashbard by not displaying a removed plugin and also the clie
 </code></pre><p>If the "activateAuth" is set to true, you will be redirected to the login page on the first navigation on the dashboard.
 You then need to give the information set on the "username" et "password" settings value.</p>
 <p>This allows you to configure a remote Vorlon.js dashboard without risking everyone to access it.</p>
+<a name="ssl-support"></a><h2 id="ssl-support">SSL Support</h2>
+<p>If you want to run the server with SSL support proceed as follows:</p>
+<ul>
+<li>1.Install Vorlonjs following the steps in Easy Setup</li>
+<li>2.Navigate to the installation folder</li>
+<li>3.Modify JSON file to activate SSL support</li>
+<li>4.In JSON file set to true </li>
+<li>5.If you want to replace our localhost certificate should only change the path of the files with the private key and certificate</li>
+<li><p>6.Exit and save JSON file</p>
+<pre><code> {
+     "useSSLAzure: false,
+     "useSSL": true,
+     "SSLkey": "server/cert/server.key",
+     "SSLcert": "server/cert/server.crt",
+     "includeSocketIO": true,
+     "plugins": 
+         ...
+ }
+</code></pre></li>
+</ul>
+<a name="ssl-support-on-azure"></a><h2 id="ssl-support-on-azure">SSL Support on Azure</h2>
+<ul>
+<li>1.Navigate to the installation folder</li>
+<li>2.Modify JSON file to activate SSLAzure support</li>
+<li>3.In JSON file set to true</li>
+<li>4.Exit and save JSON file</li>
+<li><p>5.Navigate with https protole on your Azure WebSite</p>
+<pre><code> {
+     "useSSLAzure: true,
+     "useSSL": false,
+     "SSLkey": "",
+     "SSLcert": "",
+     "includeSocketIO": true,
+     "plugins": 
+     ...
+ }
+</code></pre></li>
+</ul>
+<a name="configure-vorlon-behind-a-nginx-proxy"></a><h2 id="configure-vorlon-behind-a-nginx-proxy">Configure Vorlon behind a Nginx proxy</h2>
+<p>Edit your nginx.conf, find <strong>server {</strong> and use this (don't forget to change the paths below to your own paths).</p>
+<pre><code>server {
 
+    server_name  vorlon;
+
+    location ~ ^/(fonts/|images/|javascripts/|stylesheets/|vorlon/|vorlon.dashboardManager.js|robots.txt|humans.txt|favicon.ico) {
+             root /PATH/TO/Vorlonjs/Server/public;
+             access_log off;
+             expires 24h;
+    }
+
+    location /test {
+             proxy_set_header Upgrade $http_upgrade;
+             proxy_set_header Connection "upgrade";
+             proxy_http_version 1.1;
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+             proxy_set_header Host      $host;
+             proxy_pass http://localhost:1337;
+    }
+
+    location /socket.io {
+             proxy_set_header Upgrade $http_upgrade;
+             proxy_set_header Connection "upgrade";
+             proxy_http_version 1.1;
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+             proxy_set_header Host      $host;
+             proxy_pass http://localhost:1337;
+    }
+</code></pre>
           </section>
           <section><a name="vorlonjs-dashboard"></a><h1>Vorlon.JS Dashboard</h1>
 <p>The Vorlon.JS dashboard is designed to help debug and test remote JavaScript applications and the UI is geared towards that goal. The dashboard has two major sections, the client summary view and the plugin view.</p>
@@ -182,12 +268,17 @@ You then need to give the information set on the "username" et "password" settin
 <p>The Network Monitor brings the ability to see all network exchanges done between the browser and the web server. It provides the resource name, the server domain, the type of request, the duration in milliseconds and a nice visual timeline.</p>
 <a name="resources-explorer"></a><h2 id="resources-explorer">Resources Explorer</h2>
 <p>The Resources Explorer provides information about what is locally stored on the client instance such as sessions, cookies, and local storage. This can be really useful when you want to debug local cache or login / persistent user data issues.</p>
+<<<<<<< HEAD
 <a name="unit-test-for-qunit"></a><h2 id="unit-test-for-qunit">Unit Test for qUnit</h2>
 <p>The unit test plugin helps you to run qUnit tests remotely from the Dashboard. You can upload a JavaScript file containing your tests or type test directly in the plugin. Hit the "Run tests" button and you get the results in the dashboard !</p>
 <a name="my-device"></a><h2 id="my-device">My Device</h2>
 <p>This displays you a lot of informations coming from the client such as the user agent, the size of the screen, the pixel per points, etc. The informations are dynamically updated if you redimension your browser.</p>
 <a name="best-practices"></a><h2 id="best-practices">Best Practices</h2>
 <p>THis plugin process a lot of tests on your website. It will give your tips about how to improve your code through 4 categories : Accessibility, Mobile Web, Performances, Web standards.</p>
+=======
+<a name="best-practices"></a><h2 id="best-practices">Best practices</h2>
+<p>This plugins checks for many rules related to best practices and web standards for your website. It can be usefull to detect various implementation details like accessibility, css checks like prefixes, ... The rules system and extensible. It means that you could contribute additionnal rules, or build rules for yourself based on your own needs.</p>
+>>>>>>> b05bf13c0f3310140452c8a12f2926e5b113576f
 
           </section>
           <section><a name="creating-plugins"></a><h1>Creating Plugins</h1>
@@ -209,6 +300,21 @@ npm start
 <p>In the meantime, if you've developed a plugin that you think could go in Vorlon.JS core, <a href="https://github.com/MicrosoftDX/Vorlonjs">submit a pull request</a>.</p>
 <a name="useful-reading"></a><h2 id="useful-reading">Useful reading</h2>
 <p> <a href="http://blogs.msdn.com/b/emargraff/archive/2015/06/01/how-to-create-a-vorlon-js-plugin.aspx">How to create a plugin</a> by Etienne Margraff</p>
+
+          </section>
+          <section><a name="vorlon-proxy"></a><h1>Vorlon proxy</h1>
+<p>Sometimes you must audit, test, or debug a website in production and you don't have Vorlon script injected in your pages. 
+For all such cases, you could now use Vorlon "proxy" feature to open your site.</p>
+<a name="how-does-it-work"></a><h2 id="how-does-it-work-">How does it work ?</h2>
+<p>The proxy is a tool built with node.js, running server side on a separate process (and therefore a separate port or domain if you must deploy it). When the proxy is called with a target url, it will forward this http call (and all subsequent calls) to the target. The proxy will injects Vorlon's client script in the page for you in the meantime. To manage subsequent calls for resources from the website (like css, scripts, images, ...), the proxy create a cookie on first call with the target url. The (necessary) use of a cookie means that it is unadvised to run multiple Vorlon inspection using proxy with the same browser instance (because this cookie will be shared among browser tabs).</p>
+<a name="running-proxy-locally"></a><h2 id="running-proxy-locally">Running proxy locally</h2>
+<p>First you must check that the proxy has been enabled. Open config.json and verify that "enableWebproxy" is set to true, and start your Vorlon server (using "npm start" for example). That's the only thing you must have to do. If you run the proxy locally, you could go to <a href="http://localhost:1337/httpproxy">http://localhost:1337/httpproxy</a> to open a helper page. The proxy itself will listen on port 5050 (by default). In case of trouble, look at the console for your server. At the very beginning you must have a trace indicating that the server and the proxy have started, and which port they are running on.</p>
+<a name="hosting-the-proxy"></a><h2 id="hosting-the-proxy">hosting the proxy</h2>
+<p>Vorlon server and proxy resides on different processes and could be deployed separately. To work properly, the proxy must be listening at the root of a http domain. The proxy cannot work if it's set on a path like "<a href="http://vorlonjs.com/documentation/">http://vorlonjs.com/documentation/</a>". This is due to the fact that inspected web pages may have url relative to the httpdomain (url starting with "/"). If the proxy is not listening at the root, it won't be able to catch those calls.</p>
+<p>If you want to host a Vorlon instance with the proxy feature, their are a few configurations that you may find usefull :
+"vorlonServerURL" is used by the proxy to build the url of Vorlon client script
+"vorlonProxyURL" is used by the Vorlon server to send requests to the proxy</p>
+<p>if empty, "vorlonServerURL" and "vorlonProxyURL" default to localhost with the proper port.</p>
 
           </section>
           <section><a name="contributing"></a><h1>Contributing</h1>
