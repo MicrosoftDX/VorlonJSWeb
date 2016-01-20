@@ -91,6 +91,12 @@
                   <li class="depth-2"><a href="#hosting-the-proxy">hosting the proxy</a></li>
                 </ul>
               </li>
+              <li class="depth-1"><a href="#debugging-nodejs-applications">Debugging Node.js applications</a>
+                <ul>
+                  <li class="depth-2"><a href="#referencing-vorlonjs-in-your-nodejs-application">Referencing Vorlon.js in your Node.js application</a></li>
+                  <li class="depth-2"><a href="#developping-a-nodejs-compliant-plugin">Developping a Node.js compliant plugin</a></li>
+                </ul>
+              </li>
               <li class="depth-1"><a href="#contributing">Contributing</a>
               </li>
             </ul>
@@ -306,6 +312,38 @@ For all such cases, you could now use Vorlon "proxy" feature to open your site.<
 "vorlonServerURL" is used by the proxy to build the url of Vorlon client script
 "vorlonProxyURL" is used by the Vorlon server to send requests to the proxy</p>
 <p>if empty, "vorlonServerURL" and "vorlonProxyURL" default to localhost with the proper port.</p>
+
+          </section>
+          <section><a name="debugging-nodejs-applications"></a><h1>Debugging Node.js applications</h1>
+<p>Vorlon.js is versatile enough to be used with Node.js applications as well.</p>
+<p>But because node.js does not provide DOM elements, all plugins can not be used when debugging Node.js applications.
+This is why some plugins are flagged with <code>nodeCompliant=true</code> in the catalog file:</p>
+<p><code>{ "id" : "XHRPANEL", "name" : "XHR","panel": "top", "foldername" : "xhrPanel", "enabled": true, "nodeCompliant": true }</code></p>
+<a name="referencing-vorlonjs-in-your-nodejs-application"></a><h2 id="referencing-vorlon-js-in-your-node-js-application">Referencing Vorlon.js in your Node.js application</h2>
+<p>To do so, you have to <code>npm install vorlon-node-wrapper</code>. Once done, you can add this code to your application:</p>
+<pre><code>var vorlonWrapper = require("vorlon-node-wrapper");
+var serverUrl = "http://localhost:1337";
+var dashboardSession = "default";
+
+//This will connect to your Vorlon.js instance (serverUrl) and download the Vorlon.node.js client file (Vorlon for node).
+vorlonWrapper.start(serverUrl, dashboardSession, false);
+
+// Your code
+// ...
+</code></pre><p>You can also use the asynchronous version of the <code>start</code> function:</p>
+<pre><code>var vorlonWrapper = require("vorlon-node-wrapper");
+var serverUrl = "http://localhost:1337";
+var dashboardSession = "default";
+
+//This will connect to your Vorlon.js instance (serverUrl) and download the Vorlon.node.js client file (Vorlon for node).
+vorlonWrapper.start(serverUrl, dashboardSession, true, function (result, errorMessage) {
+
+    // Your code
+    // ...
+});
+</code></pre><a name="developping-a-nodejs-compliant-plugin"></a><h2 id="developping-a-node-js-compliant-plugin">Developping a Node.js compliant plugin</h2>
+<p>If you plan to create a plugin that could work with Node.js, the only think you have to do is to mark it as compliant in the catalog.json file.</p>
+<p>Regarding the code itself, you can use <code>Vorlon.Tools.IsWindowAvailable</code> to determine if you are running in a browser context (where <code>window</code> object is available) or in a node.js context (where <code>global</code> object is available).</p>
 
           </section>
           <section><a name="contributing"></a><h1>Contributing</h1>

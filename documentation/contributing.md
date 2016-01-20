@@ -1,7 +1,7 @@
 ---
 section: contributing
 title: Contributing
-sequence: 06
+sequence: 07
 ---
 
 Vorlon.JS is a fully open source project. It is licensed with the [MIT License](https://github.com/MicrosoftDX/Vorlonjs/blob/master/LICENSE).
