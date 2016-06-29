@@ -53,3 +53,13 @@ This displays you a lot of informations coming from the client such as the user 
 ## Best practices
 
 This plugins checks for many rules related to best practices and web standards for your website. It can be usefull to detect various implementation details like accessibility, css checks like prefixes, ... The rules system and extensible. It means that you could contribute additionnal rules, or build rules for yourself based on your own needs. 
+
+
+## NodeJS Process
+
+This displays you informations from your node.js process such as the required node modules, the node.js version, the operating system of your server, etc.
+The plugins also allow you to see the memory usage of your process through a line chart.
+
+## Express Debugger
+
+The Express Debugger allows you to debug your Node.js Express-based application, you can see the request flow, the routes, the sessions and the locals variable of your application.
