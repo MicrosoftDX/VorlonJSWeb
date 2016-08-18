@@ -23,7 +23,7 @@ Before you can start debugging your app you have to enable it to communicate to 
 
     <script src="http://localhost:1337/vorlon.js"></script>
 
-You can also open the [sample page](http://cdn.rawgit.com/MicrosoftDX/Vorlonjs/master/Plugins/samples/index.html) to test that your dashboard is working. You should see the client appear in your dashboard when you open that page.
+You can also open the [sample page](http://cdn.rawgit.com/MicrosoftDX/Vorlonjs/master/client samples/webpage/index.html) to test that your dashboard is working. You should see the client appear in your dashboard when you open that page.
 
 ## Vorlon.JS Client advanced topics
 
