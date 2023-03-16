@@ -32,7 +32,7 @@
           <h1 class="home"><a href="/" class="logo">Vorlon.JS</a></h1>
           <label for="reveal-nav" class="nav-item filled reveal-nav-btn">Menu</label>
           <input type="checkbox" id="reveal-nav" role="button" class="reveal-nav-input">
-          <div class="nav-main-list"><a href="/#demo" class="nav-item">See Demo</a><a href="/#getting-started" class="nav-item">Get Started</a><a href="/#vorlon-desktop" class="nav-item">Desktop app</a><a href="/plugins" class="nav-item">Plugins</a><a href="/documentation" class="nav-item">Documentation</a><a href="/community" class="nav-item">Community</a><a href="https://slackinvorlon.azurewebsites.net/" target="_blank" class="nav-item">Join Slack</a><a href="https://github.com/MicrosoftDX/Vorlonjs/" class="nav-item filled">GitHub</a></div>
+          <div class="nav-main-list"><a href="/#demo" class="nav-item">See Demo</a><a href="/#getting-started" class="nav-item">Get Started</a><a href="/#vorlon-desktop" class="nav-item">Desktop app</a><a href="/plugins" class="nav-item">Plugins</a><a href="/documentation" class="nav-item">Documentation</a><a href="/community" class="nav-item">Community</a><a href="https://github.com/MicrosoftDX/Vorlonjs/" class="nav-item filled">GitHub</a></div>
         </div>
       </nav>
       <header class="site-header">
@@ -58,9 +58,7 @@
       <section class="centered">
         <div class="container narrow">
           <h1>Introducing Vorlon.JS</h1>
-          <p class="centered"><img src="https://jcorioland.visualstudio.com/DefaultCollection/_apis/public/build/definitions/593f5499-db9b-4e0f-ba42-fdd5d655592a/2/badge"><span>&nbsp;&nbsp;</span><a href="https://npmjs.org/package/vorlon" class="npm-shield"><img src="https://badge.fury.io/js/vorlon.svg"></a><span>&nbsp;&nbsp;</span>
-            <script async defer src="https://slackinvorlon.azurewebsites.net/slackin.js"></script><span>&nbsp;&nbsp;</span>
-          </p>
+          <p class="centered"><a href="https://npmjs.org/package/vorlon" class="npm-shield"></a><img src="https://badge.fury.io/js/vorlon.svg"></p><span>&nbsp;&nbsp;</span>
           <p>An open source, extensible, platform-agnostic tool for remotely debugging and testing your JavaScript. Powered by node.js and socket.io.</p>
         </div>
       </section>
@@ -85,9 +83,14 @@
           <h2>See a Vorlon.JS Demo</h2>
           <div class="video">
             <div class="video-embed">
-              <video controls>
-                <source src="/videos/vorlon-demo.mp4" type="video/mp4">
-              </video>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/akmiqohFOM0" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="container cf"></div>
+          <h2>Remote debug a Tesla!</h2>
+          <div class="video">
+            <div class="video-embed">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/r7nDvWS3n1o" frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -95,10 +98,10 @@
       <hr>
       <section id="getting-started">
         <div class="container cf">
-          <h2>Learn more about Vorlon.js in this 20 minutes video</h2>
+          <h2>Learn more about Vorlon.js in this 10 minutes video</h2>
           <div class="video">
             <div class="video-embed">
-              <iframe src="https://channel9.msdn.com/Shows/codechat/046/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/77u73mD9MKE?t=2812" frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -107,6 +110,7 @@
       <section id="getting-started">
         <div class="container narrow">
           <h2>Getting Started</h2>
+          <p><strong>Prerequisites:</strong> please note that Vorlon.js doesn't work for now with Node v18, please use v16 until we fix it.</p>
           <p>Learn everything you need to about Vorlon.js 0.1.0 in <a href='https://channel9.msdn.com/Shows/codechat/046' target="_blank">this video</a></p>
           <p>Install and run the Vorlon.JS server from npm:</p>
           <pre><code>$ npm i -g vorlon 
@@ -123,7 +127,6 @@ The Vorlon server is running</code></pre>
             <pre><code>&lt;script src="http://localhost:1337/vorlon.js"&gt;&lt;/script&gt;</code></pre>
           </p>
           <p>Now when you open your app you should see your client appear on the dashboard.</p>
-          <p>You can also open the <a href="http://cdn.rawgit.com/MicrosoftDX/Vorlonjs/master/Plugins/samples/index.html">sample page</a>, which already has this script tag in it, to test your dashboard.</p>
           <p class="centered"><a href="documentation/" class="btn btn-primary">Read the Docs</a></p>
         </div>
       </section>
@@ -139,7 +142,7 @@ The Vorlon server is running</code></pre>
             <li>Download zip file by clicking the button bellow. </li>
             <li>Unzip content in a temp folder and run the installer</li>
           </ul>
-          <p class="centered"><a href="https://andyet.azurewebsites.net/desktop/vorlon-desktop.zip" class="btn btn-primary">Download Windows version</a></p>
+          <p class="centered"><a href="./desktop/vorlon-desktop.zip" class="btn btn-primary">Download Windows version</a></p>
           <h3>Install MacOSX version</h3>
           <ul>
             <li>Download dmg file by clicking the button bellow. </li>
@@ -148,7 +151,7 @@ The Vorlon server is running</code></pre>
             <li>If the window also contains a shortcut icon to 'Applications', drag and drop the app onto the shortcut. </li>
             <li>If not, double-click the mounted volume on your desktop and drag the app icon from there to the 'Applications' icon in the Finder sidebar.</li>
           </ul>
-          <p class="centered"><a href="https://andyet.azurewebsites.net/desktop/vorlon-desktop_0.1.0.dmg" class="btn btn-primary">Download Mac OSX version</a></p>
+          <p class="centered"><a href="./desktop/vorlon-desktop_0.1.0.dmg" class="btn btn-primary">Download Mac OSX version</a></p>
         </div>
       </section>
       <footer class="site-footer">

@@ -31,7 +31,7 @@
           <h1 class="home"><a href="/" class="logo">Vorlon.JS</a></h1>
           <label for="reveal-nav" class="nav-item filled reveal-nav-btn">Menu</label>
           <input type="checkbox" id="reveal-nav" role="button" class="reveal-nav-input">
-          <div class="nav-main-list"><a href="/#demo" class="nav-item">See Demo</a><a href="/#getting-started" class="nav-item">Get Started</a><a href="/#vorlon-desktop" class="nav-item">Desktop app</a><a href="/plugins" class="nav-item">Plugins</a><a href="/documentation" class="nav-item">Documentation</a><a href="/community" class="nav-item">Community</a><a href="https://slackinvorlon.azurewebsites.net/" target="_blank" class="nav-item">Join Slack</a><a href="https://github.com/MicrosoftDX/Vorlonjs/" class="nav-item filled">GitHub</a></div>
+          <div class="nav-main-list"><a href="/#demo" class="nav-item">See Demo</a><a href="/#getting-started" class="nav-item">Get Started</a><a href="/#vorlon-desktop" class="nav-item">Desktop app</a><a href="/plugins" class="nav-item">Plugins</a><a href="/documentation" class="nav-item">Documentation</a><a href="/community" class="nav-item">Community</a><a href="https://github.com/MicrosoftDX/Vorlonjs/" class="nav-item filled">GitHub</a></div>
         </div>
       </nav>
       <div class="container docs-content">
@@ -315,7 +315,7 @@ For all such cases, you could now use Vorlon "proxy" feature to open your site.<
 <a name="running-proxy-locally"></a><h2 id="running-proxy-locally">Running proxy locally</h2>
 <p>First you must check that the proxy has been enabled. Open config.json and verify that "enableWebproxy" is set to true, and start your Vorlon server (using "npm start" for example). That's the only thing you must have to do. If you run the proxy locally, you could go to <a href="http://localhost:1337/httpproxy">http://localhost:1337/httpproxy</a> to open a helper page. The proxy itself will listen on port 5050 (by default). In case of trouble, look at the console for your server. At the very beginning you must have a trace indicating that the server and the proxy have started, and which port they are running on.</p>
 <a name="hosting-the-proxy"></a><h2 id="hosting-the-proxy">hosting the proxy</h2>
-<p>Vorlon server and proxy resides on different processes and could be deployed separately. To work properly, the proxy must be listening at the root of a http domain. The proxy cannot work if it's set on a path like "<a href="http://vorlonjs.com/documentation/">http://vorlonjs.com/documentation/</a>". This is due to the fact that inspected web pages may have url relative to the httpdomain (url starting with "/"). If the proxy is not listening at the root, it won't be able to catch those calls.</p>
+<p>Vorlon server and proxy resides on different processes and could be deployed separately. To work properly, the proxy must be listening at the root of a http domain. The proxy cannot work if it's set on a path like "<a href="http://vorlonjs.com/documentation/&quot;">http://vorlonjs.com/documentation/"</a>. This is due to the fact that inspected web pages may have url relative to the httpdomain (url starting with "/"). If the proxy is not listening at the root, it won't be able to catch those calls.</p>
 <p>If you want to host a Vorlon instance with the proxy feature, their are a few configurations that you may find usefull :
 "vorlonServerURL" is used by the proxy to build the url of Vorlon client script
 "vorlonProxyURL" is used by the Vorlon server to send requests to the proxy</p>
